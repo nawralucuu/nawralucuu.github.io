@@ -3,60 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Cinta untuk Kekasihku</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Dancing+Script&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Surat Cinta untuk Naura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300,400&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffe6e6;
+            background: linear-gradient(135deg, #ffe6f0, #ffc0cb, #ffb6c1);
+            min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            font-family: 'Cormorant Garamond', serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            animation: backgroundShimmer 15s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .love-letter {
-            background-color: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            background: rgba(255, 255, 255, 0.97);
+            max-width: 800px;
+            margin: 20px;
+            padding: 60px;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(233, 30, 99, 0.2);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #ffd1dc;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .love-letter:hover {
+            transform: perspective(1000px) rotateX(2deg);
+        }
+
+        .heart-container {
             text-align: center;
+            margin-bottom: 40px;
             position: relative;
         }
 
-        .heart {
-            color: #ff4d4d;
-            font-size: 24px;
-            margin: 10px;
-            animation: pulse 1.5s infinite;
+        .beating-heart {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .beating-heart::after {
+            content: '❤️';
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+            filter: blur(4px);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: blur(4px) brightness(1); }
+            50% { filter: blur(8px) brightness(1.5); }
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            letter-spacing: 3px;
         }
 
         .date {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 20px;
+            text-align: center;
+            font-style: italic;
+            color: #ff69b4;
+            margin-bottom: 50px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
         }
 
         .content {
-            line-height: 1.8;
-            color: #333;
+            line-height: 2.2;
+            font-size: 1.4em;
+            color: #4a4a4a;
+            padding: 0 30px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .content p {
+            margin-bottom: 30px;
             text-align: justify;
-            margin: 20px 0;
+            text-indent: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .content p:hover {
+            transform: translateX(10px);
+            color: #ff1493;
+        }
+
+        .content p:first-of-type {
+            font-size: 1.6em;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            font-weight: 700;
+            text-indent: 0;
         }
 
         .signature {
             text-align: right;
-            margin-top: 30px;
-            font-style: italic;
+            margin-top: 60px;
+            padding-right: 40px;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .signature p {
+            margin: 5px 0;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4em;
+            color: #ff69b4;
+        }
+
+        .name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8em;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 15px;
+            text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+        }
+
+        .decorative-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 5px solid rgba(255, 105, 180, 0.2);
+            margin: 20px;
+            border-radius: 35px;
+            pointer-events: none;
+            animation: borderPulse 4s infinite;
         }
 
         .floating-hearts {
@@ -66,20 +179,113 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 1;
         }
 
         .floating-heart {
-            position: absolute;
-            font-size: 20px;
-            color: #ff4d4d;
-            opacity: 0.6;
-            animation: float 6s linear infinite;
+            position: fixed;
+            font-size: 30px;
+            animation: float-up 10s linear;
+            z-index: 100;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.7));
         }
 
-        @keyframes float {
-            0% { transform: translateY(100vh); opacity: 0.6; }
-            100% { transform: translateY(-100px); opacity: 0; }
+        .click-heart {
+            position: fixed;
+            font-size: 40px;
+            pointer-events: none;
+            animation: clickHeartAnim 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            z-index: 1000;
+        }
+
+        .heart-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .heart-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: particleAnim 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { border-color: rgba(255, 105, 180, 0.2); }
+            50% { border-color: rgba(255, 105, 180, 0.5); }
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.3);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes clickHeartAnim {
+            0% {
+                transform: scale(0.3) translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5) translate(0, -100px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes particleAnim {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .glitter {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            animation: glitter 3s linear infinite;
+        }
+
+        @keyframes glitter {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1) rotate(180deg); opacity: 1; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .love-letter {
+                padding: 30px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                font-size: 1.2em;
+                padding: 0 15px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -90,172 +296,105 @@
         <div class="heart-container">
             <div class="beating-heart">❤️</div>
         </div>
-        <h1>Untuk Bidadari Hatiku</h1>
-        <div class="date">13 April 2025</div>
+        <h1>Buat Kamuuu Keyla Naura Khairunnisa</h1>
         
         <div class="content">
-            <p>Wahai malaikat hatiku yang tercinta,</p>
+            <p>Halooo Pacar Akuu Yang Paling Cantik Sedunia,</p>
 
-            <p>Di setiap detak jantungku yang berirama, nama indahmu menari dengan lembutnya. Kehadiranmu bagaikan mentari pagi yang menerangi setiap sudut gelap dalam hidupku, menghangatkan jiwa dengan cahaya cintamu yang tak terbatas.</p>
+            <p>Di setiap detak waktu yang berjalan, namamu menari bagai melodi syahdu yang menggetarkan setiap sudut hatiku. Kehadiranmu bagaikan matahari pagi yang menyinari duniaku, menghangatkan setiap momen dengan cinta yang begitu murni dan tulus.</p>
 
-            <p>Cintaku padamu seperti bintang-bintang di langit malam - tak terhitung jumlahnya dan akan selalu bersinar abadi. Setiap hembusan nafasku membisikkan namamu, dan setiap detik yang berlalu hanya membuatku semakin jatuh cinta padamu.</p>
+            <p>Cintaku padamu melampaui kedalaman samudera dan ketinggian langit yang tak berbatas. Setiap detak jantungku adalah bisikan namamu yang tak pernah lelah mengucap, dan setiap detik yang berlalu hanya membuat perasaan ini tumbuh semakin mendalam, semakin kuat, dan semakin abadi.</p>
 
-            <p>Kau adalah puisi terindah yang pernah ditulis oleh takdir dalam buku kehidupanku. Senyummu adalah pelangi setelah hujan, tawamu adalah melodi termerdu yang pernah kudengar, dan cintamu adalah anugerah terindah yang pernah kumiliki.</p>
+            <p>Kau adalah puisi terindah yang dituliskan takdir dalam lembaran hidupku. Senyummu adalah pelangi yang mewarnai setiap hariku dengan kebahagiaan, tawamu adalah melodi surga yang memenuhi setiap ruang di hatiku, dan cintamu adalah anugerah terindah yang pernah Tuhan titipkan dalam hidupku.</p>
 
-            <p>Aku berjanji akan mencintaimu seperti bulan mencintai bumi - setia mengelilingi dan menerangi gelapmu. Akan kujaga cinta ini seperti menjaga permata terindah, karena bagiku, kaulah harta yang tak ternilai harganya.</p>
+            <p>Aku bersumpah akan mencintaimu seperti bintang yang setia menerangi malam - tak pernah padam, tak pernah redup. Akan kujaga cinta ini seperti menjaga permata terindah, karena bagiku, kaulah harta yang tak ternilai harganya di dunia ini dan akhirat kelak.</p>
 
-            <p>Dalam setiap doa dan harapanku, namamu selalu kusebut dengan penuh kerinduan. Kau adalah mimpi terindah yang menjadi nyata dalam hidupku.</p>
+            <p>Dalam setiap sujud dan doaku, namamu selalu terukir dengan penuh kerinduan dan harapan. Kaulah mimpi terindahku yang menjadi nyata, bidadari surgawi yang mengajarkanku arti cinta yang sesungguhnya dan ketulusan yang tak terbatas.</p>
         </div>
 
         <div class="signature">
-            <p>Dengan segenap jiwa dan raga,</p>
-            <p class="name">Muhammad Bhatari</p>
+            <p>Dengan segenap jiwa dan cinta,</p>
+            <p class="name">@_yourgusz</p>
         </div>
         <div class="decorative-border"></div>
     </div>
-
-    <style>
-        body {
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .love-letter {
-            background: rgba(255, 255, 255, 0.95);
-            max-width: 800px;
-            margin: 20px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .heart-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .beating-heart {
-            font-size: 48px;
-            animation: heartbeat 1.5s infinite;
-            display: inline-block;
-        }
-
-        h1 {
-            text-align: center;
-            color: #e91e63;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .date {
-            text-align: center;
-            font-style: italic;
-            color: #9e9e9e;
-            margin-bottom: 30px;
-        }
-
-        .content {
-            line-height: 1.8;
-            font-size: 1.2em;
-            color: #424242;
-        }
-
-        .content p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .signature {
-            text-align: right;
-            margin-top: 40px;
-        }
-
-        .name {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8em;
-            color: #e91e63;
-        }
-
-        .decorative-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 2px solid #f8bbd0;
-            margin: 10px;
-            border-radius: 15px;
-            pointer-events: none;
-        }
-
-        .floating-heart {
-            position: fixed;
-            font-size: 20px;
-            animation: float-up 6s linear;
-            z-index: 100;
-            opacity: 0.8;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes float-up {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .love-letter {
-                padding: 20px;
-                margin: 10px;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                font-size: 1.1em;
-            }
-        }
-    </style>
 
     <script>
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
-            heart.innerHTML = ['❤️', '💖', '💗', '💓'][Math.floor(Math.random() * 4)];
+            const hearts = ['❤️', '💖', '💗', '💝', '💓', '💕', '💘', '💞'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
             document.getElementById('hearts').appendChild(heart);
 
             setTimeout(() => {
                 heart.remove();
-            }, 6000);
+            }, 10000);
         }
 
-        setInterval(createHeart, 500);
+        function createGlitter() {
+            const glitter = document.createElement('div');
+            glitter.className = 'glitter';
+            glitter.style.left = Math.random() * 100 + 'vw';
+            glitter.style.top = Math.random() * 100 + 'vh';
+            document.body.appendChild(glitter);
+
+            setTimeout(() => {
+                glitter.remove();
+            }, 3000);
+        }
+
+        function createClickHeart(x, y) {
+            const heart = document.createElement('div');
+            heart.className = 'click-heart';
+            const hearts = ['❤️', '💖', '💗', '💝', '💓', '💕', '💘', '💞'];
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = (x - 20) + 'px';
+            heart.style.top = (y - 20) + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 1500);
+        }
+
+        function createHeartBurst(x, y) {
+            const burst = document.createElement('div');
+            burst.className = 'heart-burst';
+            burst.style.left = x + 'px';
+            burst.style.top = y + 'px';
+
+            const particleCount = 8;
+            const hearts = ['❤️', '💖', '💗', '💝', '💓', '💕', '💘', '💞'];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'heart-particle';
+                particle.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                
+                const angle = (i * 360) / particleCount;
+                const distance = 100;
+                const tx = Math.cos(angle * Math.PI / 180) * distance;
+                const ty = Math.sin(angle * Math.PI / 180) * distance;
+                
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                particle.style.fontSize = (Math.random() * 10 + 20) + 'px';
+                
+                burst.appendChild(particle);
+            }
+
+            document.body.appendChild(burst);
+            setTimeout(() => burst.remove(), 1000);
+        }
+
+        document.addEventListener('click', (e) => {
+            createClickHeart(e.clientX, e.clientY);
+            createHeartBurst(e.clientX, e.clientY);
+        });
+
+        setInterval(createHeart, 400);
+        setInterval(createGlitter, 200);
     </script>
 </body>
 </html>
